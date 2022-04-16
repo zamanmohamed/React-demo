@@ -32,19 +32,14 @@ const UserProfileUpdate = () => {
   }
 
   async function updateProfle() {
-    const response = await fetch(
+    const response = await axios.put(
       `http://localhost:5000/api/user/${localStorage.getItem("userID")}`,
+
       {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          Firstname: firstname,
-          lastname: lastname,
-          email: email,
-          password: password,
-        }),
+        Firstname: firstname,
+        lastname: lastname,
+        email: email,
+        password: password,
       }
     );
 
